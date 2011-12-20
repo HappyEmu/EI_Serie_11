@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Counter()
+comment0.text=\n\ Default\ constructor\ \n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ Counter\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.params=
+comment2.target=void\ writeStats()
+comment2.text=\n\ This\ is\ called\ by\ the\ world\ when\ it\ is\ stopped\ \n\ to\ flush\ the\ statistics\ file\ to\ disk.\n
+comment3.params=s1\ s2\ score1\ score2
+comment3.target=void\ display(java.lang.String,\ java.lang.String,\ int,\ int)
+comment3.text=\n\ Prepare\ and\ display\ the\ score\ board\ image.\n
+numComments=4

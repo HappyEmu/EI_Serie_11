@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=WeatherController()
+comment1.params=
+comment1.target=void\ act()
+comment2.params=r\ min\ max
+comment2.target=int\ randomBetween(java.util.Random,\ int,\ int)
+numComments=3

@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Grass()
+comment0.text=\n\ Default\ Constructor.\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ Grass\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.params=
+comment2.target=Field\ getWorld()
+comment2.text=\n\ This\ function\ typecasts\ the\ returned\ world\ object\ to\ Field\ class.\n
+numComments=3

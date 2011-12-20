@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Heater()
+comment0.text=\n\ Default\ Constructor.\n
+comment1.params=
+comment1.target=void\ initHeater()
+comment1.text=\n\ This\ function\ initializes\ the\ heater.\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ Heater\ wants\ to\ do.\ This\ method\ is\ called\ in\ each\n\ simulation\ step.\ The\ simulation\ is\ started\ by\ clicking\ the\ "run"\ button\n\ at\ the\ bottom\ of\ the\ Greenfoot\ window.\n
+comment3.params=
+comment3.target=void\ diffuseTemperature()
+comment3.text=\n\ This\ function\ computes\ the\ heat\ diffusion\ in\ each\ time\ step.\ \n\ \n\ You\ need\ to\ change\ this\ code\ to\ implement\ heat\ diffusion.\ \n\ This\ is\ just\ for\ demonstration\ purposes\!\n
+comment4.params=a\ b
+comment4.target=int\ mod(int,\ int)
+comment5.params=
+comment5.target=void\ initTemperature()
+comment5.text=\n\ This\ function\ initializes\ the\ temperature\ with\ a\ random\ value\ \n\ between\ 0\ and\ 1\ for\ each\ grid\ cell.\n\ \n
+comment6.params=
+comment6.target=void\ displayTemperature()
+comment6.text=\n\ This\ function\ displays\ the\ room\ temperature\ using\ a\ certain\ coloring\ scheme.\n\ \n
+numComments=7

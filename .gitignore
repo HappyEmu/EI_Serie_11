@@ -1,0 +1,9 @@
+*.class
+.settings/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+__MACOSX
