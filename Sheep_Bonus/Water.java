@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Water extends Actor
 {
     private static final float MAX_HUMIDITY = 150.0f;
-    private static final float EVAPORATION_RATE = 1.0f;
+    private static final float EVAPORATION_RATE = 2.0f;
     private static final float SATURATION_RATE = 20.0f;
     
     private float humidity;

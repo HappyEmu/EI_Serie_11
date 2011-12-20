@@ -21,7 +21,6 @@ public class Sheep extends Actor
     private final static float DYING_THRESHOLD = 0.0f;
     private final static float BIRTH_THRESHOLD = 75.0f;
     private final static float FOOD_DEPLETION = 0.1f;
-    private final static float FOOD_INCREMENT = 1.0f;
 
     // Direction in which the sheep currently moves
     protected Direction dir;
@@ -110,8 +109,7 @@ public class Sheep extends Actor
             {
                 // New location does not contain a solid object.
                 // Instead, it contains grass.
-                java.util.List l = theField.getObjectsAt(newX, newY, Grass.class);
-                Grass toEat = (Grass)l.get(0);
+                Grass toEat = (Grass)theField.getObjectAt(newX, newY, Grass.class);
                 this.full += toEat.getNutrition();
                 // Move to this location.                                
                 setLocation(newX, newY);

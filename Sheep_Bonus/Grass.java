@@ -29,16 +29,13 @@ public class Grass extends Actor
     // Age after which a grss patch dies.
     protected static final int MAX_AGE = 20;
    
-    public static final float MAX_HUMIDITY = 100.0f;
-    protected static final float MIN_HUMIDITY = 30.0f;
-    protected static final float HUMIDITY_DEPLETION_FACTOR = 0.5f;
+    public static final float MAX_HUMIDITY = 200.0f;
+    protected static final float MIN_HUMIDITY = 50.0f;
+    protected static final float HUMIDITY_DEPLETION_FACTOR = 0.25f;
     protected static final float HUMIDITY_POUR_FACTOR = 10.0f;
     
-    protected static final float MAX_NUTRITION = 1.0f;
+    protected static final float MAX_NUTRITION = 4.0f;
 
-    /**
-     * Default Constructor.
-     **/
     public Grass()
     {
         // set age to zero and wait time to 10.
@@ -56,10 +53,6 @@ public class Grass extends Actor
         nutrition= MAX_NUTRITION*((float)humidity)/MAX_HUMIDITY;
     }
     
-    /**
-     * Act - do whatever the Grass wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act()
     {
         Field theWorld = (Field)getWorld();
@@ -92,7 +85,7 @@ public class Grass extends Actor
                 {
                     // It is empty.
                     // Add a new grass patch to it.
-                    Grass g = new Grass();
+                    Grass g = new DryGrass();
                     theWorld.addObject(g, getX()-1, getY());
                 }
                 
@@ -101,7 +94,7 @@ public class Grass extends Actor
                 {
                     // It is empty.
                     // Add a new grass patch to it.
-                    Grass g = new Grass();
+                    Grass g = new DryGrass();
                     theWorld.addObject(g, getX(), getY()-1);
                 }
 
@@ -110,7 +103,7 @@ public class Grass extends Actor
                 {
                     // It is empty.
                     // Add a new grass patch to it.
-                    Grass g = new Grass();
+                    Grass g = new DryGrass();
                     theWorld.addObject(g, getX(), getY()+1);
                 }
 
@@ -119,7 +112,7 @@ public class Grass extends Actor
                 {
                     // It is empty.
                     // Add a new grass patch to it.
-                    Grass g = new Grass();
+                    Grass g = new DryGrass();
                     theWorld.addObject(g, getX()+1, getY());
                 }
             }
