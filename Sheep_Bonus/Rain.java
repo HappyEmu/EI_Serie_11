@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Rain extends Actor
 {
-    private static final int MAX_LIFETIME = 5;
+    private static final int MAX_LIFETIME = 7;
     
     private int life;
     
@@ -16,8 +16,9 @@ public class Rain extends Actor
         int x = getX();
         int y = getY();
         
-        ((Field)getWorld()).clearCell(x, y, Fire.class);
-        
+        Field world = (Field)getWorld();
+        world.clearCell(x, y, Fire.class);
+        world.pourGrass(x, y);
         
         if (--life <= 0)
         {

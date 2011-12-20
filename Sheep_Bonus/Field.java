@@ -182,6 +182,28 @@ public class Field extends World
         addObject(newGrass, x, y);
     }
     
+    public void seedGrass(int x, int y, float hum)
+    {
+        Grass newGrass = new Grass(hum);
+        addObject(newGrass, x, y);
+    }
+    
+    public void seedDryGrass(int x, int y)
+    {
+        DryGrass newGrass = new DryGrass();
+        addObject(newGrass, x, y);
+    }
+    
+    public void pourGrass(int x, int y)
+    {
+        java.util.List l = getObjectsAt(x, y, Grass.class);
+
+        for (Object a : l)
+        {
+            ((Grass)a).pour();
+        }
+    }
+    
     public void spawnWaterAt(int x, int y)
     {
         clearCell(x,y,null);
@@ -483,5 +505,8 @@ public class Field extends World
         
         WeatherController rc = new WeatherController();
         addObject(rc,0,0);
+        
+        DryGrass dg = new DryGrass();
+        addObject(dg,1,3);
     }
 }

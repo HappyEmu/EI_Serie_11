@@ -16,8 +16,8 @@ import java.util.Random;
  */
 public class Sheep extends Actor
 {
-    private final static float NEWBORN_FOOD = 25.0f;
-    private final static float MATERNITY_FOOD = 50.0f;
+    private final static float NEWBORN_FOOD = 50.0f;
+    private final static float MATERNITY_FOOD = 25.0f;
     private final static float DYING_THRESHOLD = 0.0f;
     private final static float BIRTH_THRESHOLD = 75.0f;
     private final static float FOOD_DEPLETION = 0.1f;
@@ -110,13 +110,15 @@ public class Sheep extends Actor
             {
                 // New location does not contain a solid object.
                 // Instead, it contains grass.
-                
+                java.util.List l = theField.getObjectsAt(newX, newY, Grass.class);
+                Grass toEat = (Grass)l.get(0);
+                this.full += toEat.getNutrition();
                 // Move to this location.                                
                 setLocation(newX, newY);
                 // Eat the grass here.
                 theField.eatGrassAt(newX, newY);
                 
-                this.full += FOOD_INCREMENT;
+                
             }
             else if (theField.hasFireAt(newX, newY) || theField.hasFireAt(oldX,oldY))
             {

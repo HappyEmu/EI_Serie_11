@@ -13,17 +13,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Grass extends Actor
 {
-    // Age of a grass patch.
-    private int age;
     
     // Wait time before grass would take some action.
-    private int waitTime;
+    protected int waitTime;
+    
+    protected float humidity;
+    
+    protected float nutrition;
+    
+    protected int age;
 
     // Age after which a grass patch may grow.
-    private static final int GROWTH_AGE = 10;
+    protected static final int GROWTH_AGE = 10;
     
     // Age after which a grss patch dies.
-    private static final int MAX_AGE = 20;
+    protected static final int MAX_AGE = 20;
+   
+    protected static final float MAX_HUMIDITY = 100.0f;
+    protected static final float MIN_HUMIDITY = 30.0f;
+    protected static final float HUMIDITY_DEPLETION_FACTOR = 0.5f;
+    protected static final float HUMIDITY_POUR_FACTOR = 10.0f;
+    
+    protected static final float MAX_NUTRITION = 1.0f;
 
     /**
      * Default Constructor.
@@ -33,27 +44,47 @@ public class Grass extends Actor
         // set age to zero and wait time to 10.
         age = 0;
         waitTime = 10;
+        humidity = MAX_HUMIDITY;
+        nutrition= MAX_NUTRITION*((float)humidity)/MAX_HUMIDITY;
     }
+    
+    public Grass(float hum)
+    {
+        age = 0;
+        waitTime = 10;
+        humidity = hum;
+        nutrition= MAX_NUTRITION*((float)humidity)/MAX_HUMIDITY;
+    }
+    
     /**
      * Act - do whatever the Grass wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        // Eecrease wait time
-        waitTime--;
+        Field theWorld = (Field)getWorld();
         
+         humidity -= HUMIDITY_DEPLETION_FACTOR;
+         nutrition = MAX_NUTRITION*((float)humidity)/MAX_HUMIDITY;
+        
+        if (humidity <= MIN_HUMIDITY)
+        {   
+            theWorld.seedDryGrass(getX(), getY());
+            this.kill();
+            return;
+        }
         // Check if it is time for action
-        if (waitTime < 0)
+        if (--waitTime <= 0)
         {
-            Field theWorld = getWorld();
-
+            
             // set new wait time to a random value between 5 to 9
             waitTime = 5 + Greenfoot.getRandomNumber(5);
+            
+           
 
             // Check if this grass patch has reached an age to grow.
             // If it has reached the age to grow, with a chance 1 in four grow it.
-            if (age >= GROWTH_AGE  && 0 == (Greenfoot.getRandomNumber(4)))
+            if (++age >= GROWTH_AGE && 0 == (Greenfoot.getRandomNumber(4)))
             {// random chance 1 in 4
 
                 // Check if the left neighbouring location is empty.
@@ -92,29 +123,26 @@ public class Grass extends Actor
                     theWorld.addObject(g, getX()+1, getY());
                 }
             }
-            
-            age++;
-            
-            // Check is the grass is old enough to die
-            if(age > MAX_AGE) 
-            {
-                // remove this grass patch from its world.
-                theWorld.removeObject(this);
-            }
-        }
-        
+        } 
     }
-
-    /**
-     * This function typecasts the returned world object to Field class.
-     **/
-    public Field getWorld()
+    
+    public void pour()
     {
-        return (Field) super.getWorld();
+        this.humidity += HUMIDITY_POUR_FACTOR;
+    }
+    
+    public void dry()
+    {
+        this.humidity -= HUMIDITY_POUR_FACTOR; 
     }
     
     public void kill()
     {
         getWorld().removeObject(this);
+    }
+    
+    public float getNutrition()
+    {
+        return nutrition;
     }
 }
