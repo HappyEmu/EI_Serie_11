@@ -19,7 +19,7 @@ public class Sheep extends Actor
     private final static float NEWBORN_FOOD = 25.0f;
     private final static float MATERNITY_FOOD = 50.0f;
     private final static float DYING_THRESHOLD = 0.0f;
-    private final static float BIRTH_THRESHOLD = 75.0f;
+    private final static float BIRTH_THRESHOLD = 100.0f;
     private final static float FOOD_DEPLETION = 0.1f;
     private final static float FOOD_INCREMENT = 1.0f;
 
@@ -34,7 +34,6 @@ public class Sheep extends Actor
     { 
         int upSteps;    
         int rightSteps;
-        
 
         public Direction(int aUp, int aRight)
         {
@@ -90,7 +89,7 @@ public class Sheep extends Actor
         }
        
         // Check if the new location is empty or not.
-        if(theField.isEmpty(newX, newY) || theField.hasRainAt(newX,newY))
+        if(theField.isEmpty(newX, newY))
         {
             // New location is empty. Move there.
             setLocation(newX, newY);
@@ -118,34 +117,12 @@ public class Sheep extends Actor
                 
                 this.full += FOOD_INCREMENT;
             }
-            else if (theField.hasFireAt(newX, newY)||theField.hasFireAt(oldX,oldY))
-            {
-                Fire f1 = new PermaFire();
-                Fire f2 = new PermaFire();
-                Fire f3 = new PermaFire();
-                Fire f4 = new PermaFire();
-                
-                int x = getX();
-                int y = getY();
-                
-                getWorld().addObject(f1,x+1,y);
-                getWorld().addObject(f2,x-1,y);
-                getWorld().addObject(f3,x,y+1);
-                getWorld().addObject(f4,x,y-1);
-                
-                FireSheep fireSheep = new FireSheep(f1,f2,f3,f4);              
-                Random rand = new Random();
-                fireSheep.setDirection(-this.dir.rightSteps,-this.dir.upSteps);
-                getWorld().addObject(fireSheep,oldX,oldY);
-                
-                getWorld().removeObject(this);
-                return;
-            }
         }
         
         if (this.full <= DYING_THRESHOLD)
         {
             getWorld().removeObject(this);
+            return;
         }
     }
     

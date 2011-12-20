@@ -60,10 +60,10 @@ public class Counter extends Actor
         display("Number of Grass Patches: ", "Number of Sheeps: ", grCount, spCount);
         
         String out = spCount + " " + grCount + System.getProperty("line.separator");
-        /*try {
+        try {
             writer.write(out);
         } catch(IOException e)
-        {}*/
+        {}
     }    
     
     /**

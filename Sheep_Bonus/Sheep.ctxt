@@ -1,19 +1,17 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Sheep()
-comment0.text=\n\ Default\ Constructor.\n\ \n\ You\ need\ to\ extend\ this\ to\ initialize\ the\ amount\ of\ food\ in\ the\ \n\ sheep's\ stomach\ when\ it\ is\ created.\n
+comment0.text=\r\n\ Default\ Constructor.\r\n\ \r\n\ You\ need\ to\ extend\ this\ to\ initialize\ the\ amount\ of\ food\ in\ the\ \r\n\ sheep's\ stomach\ when\ it\ is\ created.\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\n\ Act\ -\ do\ whatever\ the\ Sheep\ wants\ to\ do.\ This\ method\ is\ called\ in\ each\ step\ of\ \n\ the\ simulation\ after\ the\ simulation\ has\ been\ started\ by\ clicking\ the\ 'Run'\ button\ \n\ in\ the\ Greenfoot\ window.\n\ \n\ You\ need\ to\ extend\ this\ method\ to\ add\ the\ additional\ sheep\ behavior,\ that\ is,\n\ eating\ grass,\ multiplying,\ or\ dying.\n
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Sheep\ wants\ to\ do.\ This\ method\ is\ called\ in\ each\ step\ of\ \r\n\ the\ simulation\ after\ the\ simulation\ has\ been\ started\ by\ clicking\ the\ 'Run'\ button\ \r\n\ in\ the\ Greenfoot\ window.\r\n\ \r\n\ You\ need\ to\ extend\ this\ method\ to\ add\ the\ additional\ sheep\ behavior,\ that\ is,\r\n\ eating\ grass,\ multiplying,\ or\ dying.\r\n
 comment2.params=theField\ oldX\ oldY\ newX\ newY
 comment2.target=void\ bounceFromSolid(Field,\ int,\ int,\ int,\ int)
-comment2.text=\n\ This\ function\ changes\ the\ direction\ of\ motion\ of\ the\ sheep\ as\ if\ it\ were\ reflecting\ back\n\ from\ a\ solid\ object\ in\ its\ path.\ It\ is\ called\ when\ the\ sheep\ collides\ with\ a\ solid\ object.\n\ You\ don't\ need\ to\ change\ this.\n
+comment2.text=\r\n\ This\ function\ changes\ the\ direction\ of\ motion\ of\ the\ sheep\ as\ if\ it\ were\ reflecting\ back\r\n\ from\ a\ solid\ object\ in\ its\ path.\ It\ is\ called\ when\ the\ sheep\ collides\ with\ a\ solid\ object.\r\n\ You\ don't\ need\ to\ change\ this.\r\n
 comment3.params=
 comment3.target=Field\ getWorld()
-comment3.text=\n\ This\ function\ typecasts\ the\ returned\ world\ object\ to\ Field\ class.\ You\ don't\ need\ to\ change\ this.\n
+comment3.text=\r\n\ This\ function\ typecasts\ the\ returned\ world\ object\ to\ Field\ class.\ You\ don't\ need\ to\ change\ this.\r\n
 comment4.params=moveVertical\ moveHorizontal\ toTop\ toLeft
 comment4.target=void\ setDirection(boolean,\ boolean,\ boolean,\ boolean)
-comment4.text=\n\ This\ function\ sets\ the\ motion\ direction\ for\ the\ sheep\ in\ terms\ of\ step\ sizes.\ This\ is\ called\ by\ the\ \n\ "field"\ object\ to\ initialize\ the\ sheep.\ You\ don't\ need\ to\ change\ this.\n\ \n\ Inputs\ \:\n\ moveVertical\ \ \ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ in\ vertical\ direction\n\ moveHorizontal\ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ in\ horizontal\ direction\n\ toTop\ \ \ \ \ \ \ \ \ \ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ upwards\ or\ downwards\ in\ the\ field.\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ flag\ is\ used\ only\ if\ 'moveVertical'\ is\ set\ to\ true.\n\ toLeft\ \ \ \ \ \ \ \ \ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ towards\ left\ or\ right\ in\ the\ field.\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ flag\ is\ used\ only\ if\ 'moveHorizontal'\ is\ set\ to\ true.\n
-comment5.params=x\ y
-comment5.target=void\ setDirection(int,\ int)
-numComments=6
+comment4.text=\r\n\ This\ function\ sets\ the\ motion\ direction\ for\ the\ sheep\ in\ terms\ of\ step\ sizes.\ This\ is\ called\ by\ the\ \r\n\ "field"\ object\ to\ initialize\ the\ sheep.\ You\ don't\ need\ to\ change\ this.\r\n\ \r\n\ Inputs\ \:\r\n\ moveVertical\ \ \ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ in\ vertical\ direction\r\n\ moveHorizontal\ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ in\ horizontal\ direction\r\n\ toTop\ \ \ \ \ \ \ \ \ \ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ upwards\ or\ downwards\ in\ the\ field.\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ flag\ is\ used\ only\ if\ 'moveVertical'\ is\ set\ to\ true.\r\n\ toLeft\ \ \ \ \ \ \ \ \ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ towards\ left\ or\ right\ in\ the\ field.\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ flag\ is\ used\ only\ if\ 'moveHorizontal'\ is\ set\ to\ true.\r\n
+numComments=5
