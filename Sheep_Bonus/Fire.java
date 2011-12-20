@@ -28,12 +28,12 @@ public class Fire extends Actor
             
         if (--life <= 0)
         {
-            this.die();
+            this.kill();
             return;
         }
     }
     
-    public void die()
+    public void kill()
     {
         getWorld().removeObject(this);
     }

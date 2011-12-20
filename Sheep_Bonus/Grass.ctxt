@@ -8,4 +8,6 @@ comment1.text=\n\ Act\ -\ do\ whatever\ the\ Grass\ wants\ to\ do.\ This\ method
 comment2.params=
 comment2.target=Field\ getWorld()
 comment2.text=\n\ This\ function\ typecasts\ the\ returned\ world\ object\ to\ Field\ class.\n
-numComments=3
+comment3.params=
+comment3.target=void\ kill()
+numComments=4

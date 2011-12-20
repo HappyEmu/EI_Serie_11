@@ -45,8 +45,6 @@ public class FireSheep extends Sheep
         
         if(!theField.hasBrickAt(newX, newY))
         {
-            if (theField.hasGrassAt(newX, newY))
-                theField.turnGrassToFire(newX, newY);
             setLocation(newX, newY);
             if (!theField.hasBrickAt(oldX+1, oldY)) f1.setLocation(newX+1,newY);
             if (!theField.hasBrickAt(oldX-1, oldY)) f2.setLocation(newX-1,newY);

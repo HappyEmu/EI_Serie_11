@@ -6,10 +6,10 @@ public class WeatherController extends Actor
     private static final int RAIN_AMOUNT = 2;
     private static final int RAIN_DURATION = 300;
     private static final int MIN_SIZE = 8;
-    private static final int MAX_SIZE = 16;
+    private static final int MAX_SIZE = 14;
     
-    private static final float RAIN_PROBABILITY = 0.15f;
-    private static final float LIGHTNING_PROBABILITY = 0.01f;
+    private static final float RAIN_PROBABILITY = 0.3f;
+    private static final float LIGHTNING_PROBABILITY = 0.008f; //per rain period
     
     private boolean raining;
     private int xStart;

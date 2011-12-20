@@ -112,4 +112,9 @@ public class Grass extends Actor
     {
         return (Field) super.getWorld();
     }
+    
+    public void kill()
+    {
+        getWorld().removeObject(this);
+    }
 }

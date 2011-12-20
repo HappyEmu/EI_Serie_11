@@ -13,6 +13,12 @@ public class Rain extends Actor
     
     public void act() 
     {
+        int x = getX();
+        int y = getY();
+        
+        ((Field)getWorld()).clearCell(x, y, Fire.class);
+        
+        
         if (--life <= 0)
         {
             this.kill();

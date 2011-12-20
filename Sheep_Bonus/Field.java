@@ -154,46 +154,26 @@ public class Field extends World
      */
     public void eatGrassAt(int x, int y)
     {
-        java.util.List lTemp = getObjectsAt(x, y, Grass.class);
-
-        if(!lTemp.isEmpty())
-        {
-            removeObject((Actor)lTemp.get(0));
-        }
+        clearCell(x, y, Grass.class);
     }
     
     public void turnGrassToFire(int x, int y)
     {
-        java.util.List lTemp = getObjectsAt(x, y, Grass.class);
-        
-        if(!lTemp.isEmpty())
-        {
-            removeObject((Actor)lTemp.get(0));
-        }
-        
-        Fire f = new Fire();
-        addObject(f, x, y);
+        clearCell(x, y, Grass.class);
+        spawnFireAt(x, y);
     }
     
     public void turnRainToWater(int x, int y)
     {
         java.util.List lTemp = getObjectsAt(x, y, Rain.class);
         
-        if(!lTemp.isEmpty())
-        {
-            removeObject((Actor)lTemp.get(0));
-        }
-        
-        Water w = new Water();
-        Water w1 = new Water();
-        Water w2 = new Water();
-        Water w3 = new Water();
-        Water w4 = new Water();
-        addObject(w, x, y);
-        addObject(w1, x+1, y);
-        addObject(w2, x-1, y);
-        addObject(w3, x, y+1);
-        addObject(w4, x, y-1);
+        if(!lTemp.isEmpty()) removeObject((Actor)lTemp.get(0));
+
+        spawnWaterAt(x, y);
+        spawnWaterAt(x+1, y);
+        spawnWaterAt(x-1, y);
+        spawnWaterAt(x, y+1);
+        spawnWaterAt(x, y-1);
     }
     
     public void seedGrass(int x, int y)
@@ -204,6 +184,7 @@ public class Field extends World
     
     public void spawnWaterAt(int x, int y)
     {
+        clearCell(x,y,null);
         Water newWater = new Water();
         addObject(newWater, x, y);
     }
@@ -224,6 +205,16 @@ public class Field extends World
     {
         Lightning l = new Lightning();
         addObject(l, x, y);
+    }
+    
+    public void clearCell(int x, int y, Class cls)
+    {
+        java.util.List l = getObjectsAt(x, y, cls);
+        
+        for (Object a : l)
+        {
+            removeObject((Actor)a);
+        }
     }
 
     /**
