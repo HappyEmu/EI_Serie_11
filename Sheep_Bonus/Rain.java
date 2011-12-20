@@ -18,7 +18,11 @@ public class Rain extends Actor
         
         Field world = (Field)getWorld();
         world.clearCell(x, y, Fire.class);
-        world.pourGrass(x, y);
+        
+        if (world.hasGrassAt(x,y)) 
+            world.pourGrass(x, y);        
+        if (world.hasWaterAt(x,y))
+            world.resaturateWater(x, y);        
         
         if (--life <= 0)
         {

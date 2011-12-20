@@ -204,6 +204,17 @@ public class Field extends World
         }
     }
     
+    public void resaturateWater(int x, int y)
+    {
+        
+        java.util.List l = getObjectsAt(x, y, Water.class);
+
+        for (Object a : l)
+        {
+            ((Water)a).saturate();
+        }
+    }
+    
     public void spawnWaterAt(int x, int y)
     {
         clearCell(x,y,null);

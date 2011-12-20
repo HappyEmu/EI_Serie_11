@@ -3,8 +3,8 @@ import java.util.Random;
 
 public class WeatherController extends Actor
 {
-    private static final int RAIN_AMOUNT = 3;
-    private static final int RAIN_DURATION = 300;
+    private static final int RAIN_AMOUNT = 2;
+    private static final int RAIN_DURATION = 250;
     private static final int MIN_SIZE = 8;
     private static final int MAX_SIZE = 16;
     
@@ -49,8 +49,6 @@ public class WeatherController extends Actor
             int x = randomBetween(rand, xStart, xStart+size-1);
             int y = randomBetween(rand, yStart, yStart+size-1);
             
-            if (world.hasWaterAt(x,y))
-                continue;
             if (world.hasRainAt(x,y))
                 world.turnRainToWater(x,y);
             else
