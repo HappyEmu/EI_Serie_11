@@ -238,6 +238,13 @@ public class Field extends World
             removeObject((Actor)a);
         }
     }
+    
+    public Object getObjectAt(int x, int y, Class cls)
+    {
+        java.util.List l = getObjectsAt(x, y, cls);
+        
+        return l.get(0);
+    }
 
     /**
      * This function checks if a given location has a solid object (sheep/brick).
@@ -505,8 +512,5 @@ public class Field extends World
         
         WeatherController rc = new WeatherController();
         addObject(rc,0,0);
-        
-        DryGrass dg = new DryGrass();
-        addObject(dg,1,3);
     }
 }

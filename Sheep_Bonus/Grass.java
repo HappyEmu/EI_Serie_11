@@ -29,7 +29,7 @@ public class Grass extends Actor
     // Age after which a grss patch dies.
     protected static final int MAX_AGE = 20;
    
-    protected static final float MAX_HUMIDITY = 100.0f;
+    public static final float MAX_HUMIDITY = 100.0f;
     protected static final float MIN_HUMIDITY = 30.0f;
     protected static final float HUMIDITY_DEPLETION_FACTOR = 0.5f;
     protected static final float HUMIDITY_POUR_FACTOR = 10.0f;
@@ -144,5 +144,10 @@ public class Grass extends Actor
     public float getNutrition()
     {
         return nutrition;
+    }
+    
+    public float getHumidity()
+    {
+        return humidity;
     }
 }
