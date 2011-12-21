@@ -523,5 +523,14 @@ public class Field extends World
         
         WeatherController rc = new WeatherController();
         addObject(rc,0,0);
+        
+        WeatherController rc2 = new WeatherController();
+        addObject(rc2,0,0);
+        
+        WeatherController rc3 = new WeatherController();
+        addObject(rc3,0,0);
+        
+        WeatherController rc4 = new WeatherController();
+        addObject(rc4,0,0);
     }
 }

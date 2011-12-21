@@ -19,12 +19,18 @@ public class Sheep extends Actor
     private final static float NEWBORN_FOOD = 50.0f;
     private final static float MATERNITY_FOOD = 25.0f;
     private final static float DYING_THRESHOLD = 0.0f;
-    private final static float BIRTH_THRESHOLD = 75.0f;
+    private final static float BIRTH_THRESHOLD = 100.0f;
     private final static float FOOD_DEPLETION = 0.1f;
+    
+    
+    private final static int MAX_IQ = 8;//15;
+    private final static int MIN_IQ = 2;//5;
+    protected final static int VISIBILITY_RANGE = 6;
 
     // Direction in which the sheep currently moves
     protected Direction dir;
     private float full;
+    private int searchForTarget;
     
     /**
      * This class represents the direction of motion for a sheep.
@@ -52,7 +58,7 @@ public class Sheep extends Actor
     {
         // By default set direction to 0-0, i.e., no motion.
         dir = new Direction(0,0);
-
+        this.searchForTarget = 0;
         // Initially the sheep should have some fixed amount of food in its stomach.
         this.full = NEWBORN_FOOD;
     }
@@ -67,12 +73,54 @@ public class Sheep extends Actor
      */
     public void act()
     {
-        // Get a reference to the field that the sheep is living on.
         Field theField = getWorld();
-
-        // Move the sheep to its new position.
+        
         int oldX = getX();
         int oldY = getY();
+        
+        if (--searchForTarget <= 0)
+        {
+            java.util.Random rand = new Random();
+            searchForTarget = randomBetween(rand, MIN_IQ, MAX_IQ);
+            java.util.List grass = getObjectsInRange(VISIBILITY_RANGE, Grass.class);
+        
+            if (!grass.isEmpty())
+            {
+                double minAbs = 100000.0;
+                Grass nG = null;
+           
+                for (Object a : grass)
+                {
+                    int gX = ((Actor)a).getX();
+                    int gY = ((Actor)a).getY();
+                
+                    int dx = gX - oldX;
+                    int dy = gY - oldY;
+                    double abs = Math.sqrt(dx*dx+gY*gY);
+                    if (abs <= minAbs)
+                    {
+                        minAbs = abs;
+                        nG = (Grass)a;
+                    }
+                }
+            
+                int dx = nG.getX() - oldX;
+                int dy = nG.getY() - oldY;
+            
+                if (!(dx == 0 && dy == 0))
+                {
+                    if (dx > 0) this.dir.rightSteps = 1;
+                    else if (dx == 0) this.dir.rightSteps = 0;
+                    else if (dx < 0) this.dir.rightSteps = -1;
+                    
+                    if (dy > 0) this.dir.upSteps = 1;
+                    else if (dy == 0) this.dir.upSteps = 0;
+                    else if (dy < 0) this.dir.upSteps = -1;
+                }            
+            }
+        }
+        
+        
         int newX = oldX + dir.rightSteps;
         int newY = oldY + dir.upSteps;
         
@@ -88,35 +136,24 @@ public class Sheep extends Actor
             this.full = MATERNITY_FOOD;
         }
        
-        // Check if the new location is empty or not.
         if(theField.isEmpty(newX, newY) || theField.hasRainAt(newX,newY))
         {
-            // New location is empty. Move there.
             setLocation(newX, newY);
         } else 
         {
-            // New location is not empty.
-            // Check if there is a solid object at the new location. 
-            // (Sheep and bricks are solid objects, grass is not a solid object in this exercise.)
+   
             if(theField.hasSolidAt(newX, newY))
             {
-                // New location contains a solid object already.
-                
-                // Change the direction of motion for sheep as if its reflecting from the solid at the new location.               
+     
                 bounceFromSolid(theField, oldX, oldY, newX, newY);
 
             } else if(theField.hasGrassAt(newX, newY))
             {
-                // New location does not contain a solid object.
-                // Instead, it contains grass.
                 Grass toEat = (Grass)theField.getObjectAt(newX, newY, Grass.class);
-                this.full += toEat.getNutrition();
-                // Move to this location.                                
+                this.full += toEat.getNutrition();                            
                 setLocation(newX, newY);
-                // Eat the grass here.
+
                 theField.eatGrassAt(newX, newY);
-                
-                
             }
             else if (theField.hasFireAt(newX, newY) || theField.hasFireAt(oldX,oldY))
             {
@@ -141,6 +178,8 @@ public class Sheep extends Actor
                 return;
             }
         }
+        
+        
         
         if (this.full <= DYING_THRESHOLD)
         {
@@ -248,5 +287,10 @@ public class Sheep extends Actor
     {
         this.dir.rightSteps = x;
         this.dir.upSteps = y;
+    }
+    
+    private int randomBetween(Random r, int min, int max)
+    {
+        return min + (int)(r.nextFloat() * ((max - min) + 1));
     }
 }

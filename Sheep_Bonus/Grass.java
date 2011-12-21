@@ -34,7 +34,7 @@ public class Grass extends Actor
     protected static final float HUMIDITY_DEPLETION_FACTOR = 0.25f;
     protected static final float HUMIDITY_POUR_FACTOR = 10.0f;
     
-    protected static final float MAX_NUTRITION = 4.0f;
+    protected static final float MAX_NUTRITION = 3.0f;
 
     public Grass()
     {
@@ -69,11 +69,8 @@ public class Grass extends Actor
         // Check if it is time for action
         if (--waitTime <= 0)
         {
-            
             // set new wait time to a random value between 5 to 9
             waitTime = 5 + Greenfoot.getRandomNumber(5);
-            
-           
 
             // Check if this grass patch has reached an age to grow.
             // If it has reached the age to grow, with a chance 1 in four grow it.

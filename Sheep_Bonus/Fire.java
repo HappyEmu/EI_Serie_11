@@ -21,25 +21,25 @@ public class Fire extends Actor
         {
             Grass grass = (Grass)field.getObjectAt(x+1,y, Grass.class);
             float h = grass.getHumidity();
-            if (Greenfoot.getRandomNumber(100) > (int)(100.0f*(h/ Grass.MAX_HUMIDITY))) field.turnGrassToFire(x+1,y);
+            if (Greenfoot.getRandomNumber(90) > (int)(100.0f*(h/ Grass.MAX_HUMIDITY))) field.turnGrassToFire(x+1,y);
         }
         if (field.hasGrassAt(x-1,y))
         {
             Grass grass = (Grass)field.getObjectAt(x-1,y, Grass.class);
             float h = grass.getHumidity();
-            if (Greenfoot.getRandomNumber(100) > (int)(100.0f*(h/ Grass.MAX_HUMIDITY))) field.turnGrassToFire(x-1,y);
+            if (Greenfoot.getRandomNumber(90) > (int)(100.0f*(h/ Grass.MAX_HUMIDITY))) field.turnGrassToFire(x-1,y);
         }
         if (field.hasGrassAt(x,y+1))
         {
             Grass grass = (Grass)field.getObjectAt(x,y+1, Grass.class);
             float h = grass.getHumidity();
-            if (Greenfoot.getRandomNumber(100) > (int)(100.0f*(h/ Grass.MAX_HUMIDITY))) field.turnGrassToFire(x,y+1);
+            if (Greenfoot.getRandomNumber(90) > (int)(100.0f*(h/ Grass.MAX_HUMIDITY))) field.turnGrassToFire(x,y+1);
         }
         if (field.hasGrassAt(x,y-1))
         {
             Grass grass = (Grass)field.getObjectAt(x,y-1, Grass.class);
             float h = grass.getHumidity();
-            if (Greenfoot.getRandomNumber(100) > (int)(100.0f*(h/ Grass.MAX_HUMIDITY))) field.turnGrassToFire(x,y-1);
+            if (Greenfoot.getRandomNumber(90) > (int)(100.0f*(h/ Grass.MAX_HUMIDITY))) field.turnGrassToFire(x,y-1);
         }
             
         if (--life <= 0)

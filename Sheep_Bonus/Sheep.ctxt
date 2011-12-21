@@ -16,4 +16,6 @@ comment4.target=void\ setDirection(boolean,\ boolean,\ boolean,\ boolean)
 comment4.text=\n\ This\ function\ sets\ the\ motion\ direction\ for\ the\ sheep\ in\ terms\ of\ step\ sizes.\ This\ is\ called\ by\ the\ \n\ "field"\ object\ to\ initialize\ the\ sheep.\ You\ don't\ need\ to\ change\ this.\n\ \n\ Inputs\ \:\n\ moveVertical\ \ \ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ in\ vertical\ direction\n\ moveHorizontal\ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ in\ horizontal\ direction\n\ toTop\ \ \ \ \ \ \ \ \ \ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ upwards\ or\ downwards\ in\ the\ field.\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ flag\ is\ used\ only\ if\ 'moveVertical'\ is\ set\ to\ true.\n\ toLeft\ \ \ \ \ \ \ \ \ \:\ boolean\ flag\ indicating\ if\ the\ sheep\ should\ move\ towards\ left\ or\ right\ in\ the\ field.\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ flag\ is\ used\ only\ if\ 'moveHorizontal'\ is\ set\ to\ true.\n
 comment5.params=x\ y
 comment5.target=void\ setDirection(int,\ int)
-numComments=6
+comment6.params=r\ min\ max
+comment6.target=int\ randomBetween(java.util.Random,\ int,\ int)
+numComments=7
