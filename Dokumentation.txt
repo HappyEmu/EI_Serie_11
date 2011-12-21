@@ -1,0 +1,56 @@
+
+1. Zwei-dimensionale Wärmeleitung
+---------------------------------
+Bei periodischer Randbedingung pendelt sich die Temperatur über das gesamte
+Feld hinweg bei einem konstanten Wert über Null ein, da kein Wärmeaustausch
+mit der Umgebung stattfindet.
+Bei der Dirichlet Randbedingung hingegen hat der 'Rand' die konstante
+Temperatur Null, was eine ständige Abkühlung dieser Randregion führt. Somit
+wird sich die Temperatur über das ganze Feld bei t->inf bei Null einpendeln.
+
+Der Parameter r = k/h² ist für die 'Genauigkeit' der Simulation verantwortlich.
+Hohe Werte für r verringern die Genauigkeit, wobei niedrige Werte diese erhöhen.
+Die Temperaturwerte konvergieren nur für r < 1/4.
+
+2. Schafherde
+-------------
+Der Ausgang der Simulation hängt stark von den gewählten Parametern ab.
+So kann ein einziger Parameter darüber entscheiden, ob sich ein Gleichgewicht
+zwischen Schafen und Gras einstellt, eine periodische Schwankung entsteht, oder
+aber ob die Schafe oder das Gras ins Gras beissen.
+
+Bonusaufgabe
+------------
+Wetter:
+	- zufällig auftretende Regenschauer, welche Wasser am Boden generieren, sobald
+	zwei Regentropfen ein Feld getroffen haben.
+	- Regentropfen löschen brennendes Gras und brennende Schafe
+	- Regentropfen erhöhen Feuchtigkeit des Grases und des Wassers
+	- Blitze werden bei Regen zufällig ausgelöst und können Gras in Brand setzen
+
+Wasser:
+	- Wasser löscht brennende Schafe, sobald diese ein angrenzendes Wasserfeld erreichen
+	- Wasser verdunstet mit der Zeit (wird von Regentropfen wieder gesättigt)
+	- verdunstetes Wasser wird zu fruchtbarem Gras
+
+Feuer:
+	- setzt anliegendes Gras in Brand, sofern es nicht zu feucht ist (linear)
+	- setzt Schafe in Brand
+	- kann durch Blitz oder Benutzerinteraktion ausgelöst werden
+
+Gras:
+	- (dürres) Gras hat einen Nährwert, proportional zur Feuchtigkeit
+	- dürres Gras hat einen viel niedrigeren Nährwert
+	- dürres Gras wächst nicht
+	- dürres Gras wird von normalem Gras erzeugt
+	- (dürres) Gras verliert Feuchtigkeit über Zeit, wird von Regentropfen wieder gesättigt
+ 
+Schaf-KI:
+	- suchen Gras in einer vordefinierten Sichtweite
+	- haben unterschiedliche IQ (Zeit für Futtersuche)
+	- Rasenmähermodus!!!
+
+User:
+	- kann Gras generieren und Feuer legen (Maustasten)
+
+
